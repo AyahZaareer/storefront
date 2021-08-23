@@ -1,83 +1,39 @@
+
 import React from 'react';
 import { connect } from 'react-redux';
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import { Button } from '@material-ui/core';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-
-
+import { addProduct } from '../../store/actions/addProducts';
+import GridList from '@material-ui/core/GridList';
+import { GridListTile } from '@material-ui/core';
+import ProductCard from './CardProduct'
 function Products(props) {
-
-
-
-    return (
-        <div>
-            <p style={{ marginLeft: '46%', fontSize: '25px' }}>{props.active}</p>
-            <Grid
-                item
-                sm={5}
-                style={{
-                    display: 'grid',
-                    gridColumnGap: '50px',
-                    gridTemplateColumns: 'auto auto auto',
-                }}
-            >
-                {props.products.map(product => {
-                    console.log('product.name', product);
-                    if (props.active === product.category) {
-                        console.log('product', product.category);
-
-                        
-
-                        return (
-                            <Card
-                                style={{
-                                    borderRadius: '10px',
-                                    width: '18rem',
-                                    height: '400px',
-                                    marginTop: '5px',
-                                    // marginLeft: '90%',
-                                    marginBottom: '200px',
-                                    border: '1px solid gray',
-                                }}
-                                className={`cards ${product.name}`}
-                                key={product.name}
-                            >
-                                <CardMedia className={'img'} image={product.img} />
-                                <img
-                                    alt={product.name}
-                                    src={product.image}
-                                    width='120'
-                                    height='100'
-                                    style={{ marginLeft: '80px', marginTop: '10px' }}
-                                ></img>
-                                <CardContent>
-                                    <h2>{product.name}</h2>
-                                </CardContent>
-                                <CardContent >
-                                    Price : {product.price}$
-                                </CardContent>
-
-                                <section className='btnn'>
-                                    <Button variant='light' style={{ border: '1px solid gray' }}>
-                                        ADD TO CART
-                                    </Button>
-                                    <Button variant='light' style={{ border: '1px solid gray' }}>
-                                        VIEW DETAILS
-                                    </Button>
-                                </section>
-                            </Card>
-                        );
-                    } else {
-                        return '';
-                    }
-                })}
-            </Grid>
-        </div >
-
-
-    );
+  return (
+    <>
+      <p style={{ textAlign: 'center', fontSize: '25px' }}>{props.active}</p>
+      <br />
+      <GridList cols={3}>
+        {props.products.map((product, idx) => {
+          if (props.active === product.category) {
+            return (
+              <GridListTile key={idx} rows={'auto'}>
+                <ProductCard
+                  className={`cards ${product.name}`}
+                  image={product.image}
+                  alt={product.name}
+                  style={{ marginLeft: '80px', marginTop: '10px' }}
+                  count={product.count}
+                  name={product.name}
+                  key={product.name}
+                  product={product}
+                />
+              </GridListTile>
+            );
+          } else {
+            return '';
+          }
+        })}
+      </GridList>
+    </>
+  );
 }
 
 const mapStateToProps = (state) => {
@@ -86,4 +42,8 @@ const mapStateToProps = (state) => {
 
 }
 
-export default connect(mapStateToProps)(Products);
+
+const mapDispatchToProps = { addProduct };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
+

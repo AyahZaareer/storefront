@@ -1,35 +1,59 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 
-const useStyles = makeStyles((theme) => ({
+import { makeStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import Toolbar from '@material-ui/core/Toolbar';
+import { showCart } from '../../store/actions/showCart';
+import Badge from '@material-ui/core/Badge';
+import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Typography from '@material-ui/core/Typography';
+
+const StyledBadge = withStyles(theme => ({
+    badge: {
+        right: -3,
+        top: 13,
+        border: `2px solid ${theme.palette.background.paper}`,
+        padding: '0 4px',
+    },
+}))(Badge);
+
+const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
     },
-    menuButton: {
-        marginRight: theme.spacing(2),
+    space: {
+        justifyContent: 'space-between',
     },
 }));
-
-export default function Header() {
-    const classes = useStyles();
-
+function Header(props) {
+    console.log('header', props);
+    const style = useStyles();
     return (
-        <div className={classes.root}>
-            <AppBar position="static">
-                <Toolbar variant="dense">
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" color="inherit">
-                        STORE
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-        </div>
+        <AppBar color='inherit' position='static' style={{ backgroundColor: '#3f51b5' }}>
+            <Toolbar variant="dense" className={style.space}>
+                {/* <Button> STORE</Button> */}
+                <Typography variant="h6" color="inherit">
+                    STORE
+                </Typography>
+                <IconButton aria-label='cart'>
+                    <StyledBadge badgeContent={props.acart.cart.length} color='secondary'>
+                        <ShoppingCartIcon />
+                    </StyledBadge>
+                </IconButton>
+            </Toolbar>
+        </AppBar>
     );
 }
+
+const mapStateToProps = (state) => {
+    console.log("STATE???", state)
+    return { acart: state.cart };
+
+
+}
+export default connect(mapStateToProps)(Header);
