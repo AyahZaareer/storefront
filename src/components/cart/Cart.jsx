@@ -73,7 +73,6 @@ import { useSelector } from 'react-redux';
 import Chip from '@material-ui/core/Chip';
 import { deleteFromCart } from '../../store/actions/deleteFromCatr'
 import { useDispatch } from 'react-redux';
-import { connect } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
 
