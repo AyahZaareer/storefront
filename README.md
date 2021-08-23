@@ -4,7 +4,7 @@
 [URL](https://github.com/AyahZaareer/RESTy/actions) -->
 
 ## Deploy:
-[URI](https://elastic-wing-f20fe6.netlify.app/)
+[URI](https://vigorous-elion-967ace.netlify.app/)
 
 
 
