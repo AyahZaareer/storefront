@@ -6,23 +6,24 @@ import Typography from '@material-ui/core/Typography';
 
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    footer: {
         flexGrow: 1,
+         
     },
-    menuButton: {
-        marginRight: theme.spacing(2),
-    },
+    // menuButton: {
+    //      marginRight: theme.spacing(2),
+    // },
 }));
 
 export default function Footer() {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
+        <div className={classes.footer}>
             <AppBar position="static">
                 <Toolbar variant="dense">
                     
-                    <Typography variant="h6" color="inherit">
+                    <Typography style={{  textAlign: 'center'}} variant="h6" color="inherit">
                         &copy;Ayah Zaareer
                     </Typography>
                 </Toolbar>

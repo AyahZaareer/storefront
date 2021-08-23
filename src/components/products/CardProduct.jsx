@@ -14,6 +14,9 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles({
     root: {
         maxWidth: 300,
+      
+        border:'solid .1rem',
+        margin:'2rem'
     },
 });
 
@@ -22,7 +25,7 @@ const ImgMediaCard = props => {
     const classes = useStyles();
 
     return (
-        <Card className={classes.root}>
+        <Card stayle={{height:'100rem'}}className={classes.root}>
             <CardActionArea>
                 <CardMedia
                     component='img'
@@ -40,9 +43,18 @@ const ImgMediaCard = props => {
                 <Button
                     size='small'
                     color='primary'
-                    onClick={count => {
-                        if (props.count) props.addProduct(props.product);
-                        else alert('out of stock');
+                    onClick={(count) => {
+                        if (props.product.count === 0) {
+                            alert('out of stock')
+
+                        }
+                        else {
+                            console.log('props.count/onClick', props.product.count)
+
+                            props.addProduct(props.product);
+                        };
+
+
                     }}
                 >
                     Add To Cart
@@ -57,7 +69,7 @@ const ImgMediaCard = props => {
 
 
 const mapStateToProps = (state) => {
-    console.log("STATE???", state)
+    console.log("countForPro", state.products)
     return { active: state.categories.active, products: state.products.products };
 
 }

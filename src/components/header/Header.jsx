@@ -12,6 +12,7 @@ import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Typography from '@material-ui/core/Typography';
+import Cart from '../cart/Cart'
 
 const StyledBadge = withStyles(theme => ({
     badge: {
@@ -34,17 +35,21 @@ function Header(props) {
     console.log('header', props);
     const style = useStyles();
     return (
-        <AppBar color='inherit' position='static' style={{ backgroundColor: '#3f51b5' }}>
+        <AppBar  position='static' style={{ backgroundColor: '#3f51b5' }}>
             <Toolbar variant="dense" className={style.space}>
                 {/* <Button> STORE</Button> */}
                 <Typography variant="h6" color="inherit">
                     STORE
                 </Typography>
+
                 <IconButton aria-label='cart'>
-                    <StyledBadge badgeContent={props.acart.cart.length} color='secondary'>
+                    <Cart />
+                    <StyledBadge  color='secondary'>
                         <ShoppingCartIcon />
                     </StyledBadge>
+                    {/* badgeContent={props.acart.cart.length} */}
                 </IconButton>
+
             </Toolbar>
         </AppBar>
     );
