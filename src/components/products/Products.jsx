@@ -37,7 +37,7 @@ function Products(props) {
                                     width: '18rem',
                                     height: '400px',
                                     marginTop: '5px',
-                                    marginLeft: '90%',
+                                    // marginLeft: '90%',
                                     marginBottom: '200px',
                                     border: '1px solid gray',
                                 }}
