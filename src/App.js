@@ -1,9 +1,11 @@
 import './App.css';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
-import Card from './components/products/Products';
+import Products from './components/products/Products';
 import { Provider } from 'react-redux';
 import Categories from './components/storefront/Categories.jsx'
+import Cart from './components/cart/Cart';
+
 import store from './store';
 
 // export const activeCategory = name => {
@@ -18,7 +20,8 @@ function App() {
 
       <Header />
       <Categories />
-      <Card />
+      <Cart />
+      <Products />
       <Footer />
     </Provider>
 

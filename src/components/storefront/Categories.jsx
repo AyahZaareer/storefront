@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { activeCategory } from '../../store/Active';
+import { activeCategory } from '../../store/actions/Active';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
