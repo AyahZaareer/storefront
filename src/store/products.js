@@ -16,7 +16,7 @@ const initialState = {
             name: 'Samsung Smart TV',
             category: 'Electronics',
             price: '1000',
-            image: 'https://assets.hardwarezone.com/img/2019/03/Samsung-iTunes-app.jpg'
+            image: 'https://jveex.com/wp-content/uploads/2020/09/40-smart-4k-ready-led-tv-500x500-1.jpeg'
         },
         {
             name: 'Apple MacBook Air M1 2021',
