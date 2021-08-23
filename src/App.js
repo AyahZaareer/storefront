@@ -19,10 +19,13 @@ function App() {
     <Provider store={store}>
 
       <Header />
+      <div className='App'>
+
       <Categories />
-      <Cart />
+      {/* <Cart /> */}
       <Products />
       <Footer />
+      </div>
     </Provider>
 
   );
