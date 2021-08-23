@@ -74,7 +74,7 @@ import Chip from '@material-ui/core/Chip';
 import { deleteFromCart } from '../../store/actions/deleteFromCatr'
 import { useDispatch } from 'react-redux';
 
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 
 // const useStyles = makeStyles(theme => ({
 //     root: {
