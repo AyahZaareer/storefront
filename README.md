@@ -29,4 +29,4 @@
 
 
 
- ![phase#1](store.jpg)
+ ![phase#1](store2.jpg)
