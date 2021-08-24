@@ -38,12 +38,12 @@ function Header(props) {
 
 
     useEffect(() => {
-        // console.log('step 1: products component', api);
+        
         props.getProducts();
         console.log('get', props.getProducts())
 
 
-    }, []);
+    }, [props]);
     console.log('header', props);
     const style = useStyles();
     return (
