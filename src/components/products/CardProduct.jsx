@@ -14,9 +14,9 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles({
     root: {
         maxWidth: 300,
-      
-        border:'solid .1rem',
-        margin:'2rem'
+
+        border: 'solid .1rem',
+        margin: '2rem'
     },
 });
 
@@ -25,7 +25,7 @@ const ImgMediaCard = props => {
     const classes = useStyles();
 
     return (
-        <Card stayle={{height:'100rem'}}className={classes.root}>
+        <Card stayle={{ height: '100rem' }} className={classes.root}>
             <CardActionArea>
                 <CardMedia
                     component='img'
@@ -34,8 +34,12 @@ const ImgMediaCard = props => {
                     image={props.image}
                     title={props.name}
                 />
+               
                 <Typography gutterBottom variant='h6' component='h2'>
                     {props.name}
+                </Typography>
+                <Typography gutterBottom variant='h6' component='h2'>
+                  InStock:  {props.inStock}
                 </Typography>
             </CardActionArea>
 
@@ -44,12 +48,12 @@ const ImgMediaCard = props => {
                     size='small'
                     color='primary'
                     onClick={(count) => {
-                        if (props.product.count === 0) {
+                        if (props.product.inStock === 0) {
                             alert('out of stock')
 
                         }
                         else {
-                            console.log('props.count/onClick', props.product.count)
+                            // console.log('props.count/onClick', props.product.count)
 
                             props.addProduct(props.product);
                         };

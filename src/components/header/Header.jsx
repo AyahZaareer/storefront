@@ -13,6 +13,9 @@ import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Typography from '@material-ui/core/Typography';
 import Cart from '../cart/Cart'
+import {getProducts} from '../../store/actions/getProduct';
+import { useEffect } from 'react';
+
 
 const StyledBadge = withStyles(theme => ({
     badge: {
@@ -32,6 +35,15 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 function Header(props) {
+
+
+    useEffect(() => {
+        // console.log('step 1: products component', api);
+        props.getProducts();
+        console.log('get', props.getProducts())
+
+
+    }, []);
     console.log('header', props);
     const style = useStyles();
     return (
@@ -61,4 +73,5 @@ const mapStateToProps = (state) => {
 
 
 }
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = { getProducts };
+export default connect(mapStateToProps,mapDispatchToProps)(Header);
