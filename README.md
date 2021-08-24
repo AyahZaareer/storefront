@@ -10,9 +10,9 @@
 
 ## Pull Request:
   - **pull-request#1** :[URL](https://github.com/AyahZaareer/storefront/pull/1)
-   - **pull-request#2** :[URL](https://github.com/AyahZaareer/storefront/pull/5)
-<!--   - **pull-request#3** :[URL]()
-  - **pull-request#4** :[URL]() --> -->
+  - **pull-request#2** :[URL](https://github.com/AyahZaareer/storefront/pull/5)
+  - **pull-request#3** :[URL](https://github.com/AyahZaareer/storefront/pull/9)
+<!--   - **pull-request#4** :[URL]() --> --> -->
 
 ## Setup:
 1. clone the repo.
