@@ -56,10 +56,11 @@ const productsReducer = (state = initialState, action) => {
             return { ...state, activeProducts: state.activeProducts };
 
         case 'ADD':
+            console.log('ADDDDDDDDDDDDd',state.activeProducts);
             state.activeProducts = state.activeProducts.map(product => {
                 if (product.name === payload.name) {
-                    if (product.count > 0) {
-                        product.count = product.count - 1;
+                    if (product.inStock > 0) {
+                        product.inStock = product.inStock - 1;
                     } else {
 
                         return product;
@@ -68,7 +69,9 @@ const productsReducer = (state = initialState, action) => {
                 return product
             });
             return { ...state, ...state.activeProducts };
-
+        case 'GET':
+            console.log('GEEEEEEET',payload);
+            return { ...state, products: payload };
         default:
             return state;
     }
