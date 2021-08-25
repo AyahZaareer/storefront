@@ -7,7 +7,10 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 
 import { makeStyles } from '@material-ui/core/styles';
-import CardMedia from '@material-ui/core/CardMedia';
+// import CardMedia from '@material-ui/core/CardMedia';
+import {getCat}from '../../store/actions/getProduct';
+import {getCategory} from'../../store/actions/getProduct'
+import { useEffect } from 'react';
 
 
 
@@ -26,6 +29,13 @@ const useStyles = makeStyles({
 
 
 function Categories(props) {
+    useEffect(() => {
+        
+        props.getCategory();
+        console.log('get', props.getCategory())
+
+
+    });
     const classes = useStyles()
     return (
         <>
@@ -56,7 +66,7 @@ function Categories(props) {
 
                     <Card stayle={{ height: '100rem' }} className={classes.root}>
                         <CardActionArea>
-                            <CardMedia
+                            {/* <CardMedia
                                 component='img'
                                 alt={props.alt}
                                 height='250'
@@ -64,9 +74,9 @@ function Categories(props) {
                                 src={category.url}
                                 title={category.displayName}
                                 onClick={() => props.activeCategory(category.name)}
-                            />
-                            <Typography gutterBottom variant='h6' component='h2'>
-                                {category.displayName}
+                            /> */}
+                            <Typography gutterBottom variant='h6' component='h2' onClick={() => props.activeCategory(category.name)}>
+                                {category.name}
                             </Typography>
                         </CardActionArea>
 
@@ -89,6 +99,6 @@ const mapStateToProps = (state) => {
     return { categories: state.categories.categories, active: state.categories.active };
 
 }
-const mapDispatchToProps = { activeCategory };
+const mapDispatchToProps = { activeCategory,getCat ,getCategory};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);
