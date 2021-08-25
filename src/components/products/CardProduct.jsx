@@ -6,9 +6,9 @@ import CardActions from '@material-ui/core/CardActions';
 
 import CardMedia from '@material-ui/core/CardMedia';
 import { addProduct } from '../../store/actions/addProducts';
+import { updateRemoteData} from '../../store/actions/getProduct'
 import { connect } from 'react-redux';
 import { Typography } from '@material-ui/core';
-
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
@@ -55,7 +55,7 @@ const ImgMediaCard = props => {
                         else {
                             // console.log('props.count/onClick', props.product.count)
 
-                            props.addProduct(props.product);
+                            props.updateRemoteData(props.product);
                         };
 
 
@@ -79,6 +79,6 @@ const mapStateToProps = (state) => {
 }
 
 
-const mapDispatchToProps = { addProduct };
+const mapDispatchToProps = { addProduct, updateRemoteData };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImgMediaCard);

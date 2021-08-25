@@ -71,7 +71,8 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { useSelector } from 'react-redux';
 import Chip from '@material-ui/core/Chip';
-import { deleteFromCart } from '../../store/actions/deleteFromCatr'
+// import { deleteFromCart } from '../../store/actions/deleteFromCatr'
+import {updateAddData}from '../../store/actions/getProduct'
 import { useDispatch } from 'react-redux';
 
 // import { makeStyles } from '@material-ui/core/styles';
@@ -131,7 +132,7 @@ export default function SimpleCart(props) {
                             <Chip
                                 label={`${product.name} Item: ${product.item}`}
                                 onDelete={() => {
-                                    dispatch(deleteFromCart(product));
+                                    dispatch(updateAddData(product));
                                 }}
                             />
                         </MenuItem>
